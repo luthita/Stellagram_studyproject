@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.luthita.timeline.bo.ContentBO;
 import com.luthita.timeline.model.Content;
@@ -31,11 +32,14 @@ public class TimelineController {
 	}
 	
 	@RequestMapping("/timeline/timeline_search_view")
-	public String timelineSearch(Model model, HttpServletRequest request) {
+	public String timelineSearch(Model model, HttpServletRequest request,
+			@RequestParam("search") String search) {
 		HttpSession session = request.getSession();
 		Integer userId = (Integer) session.getAttribute("userId");
 		
+		
 		List<Content> contentList = contentBO.getContentList(userId);
+		model.addAttribute("search",search);
 		model.addAttribute("contentList", contentList);
 		model.addAttribute("viewName", "timeline/timeline_search");
 		return "template/layout";

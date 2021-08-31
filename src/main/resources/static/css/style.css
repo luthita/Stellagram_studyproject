@@ -29,3 +29,6 @@ footer{height: 100px;}
 .textDeepBlue{color:#2C558E;}
 .textSkyBlue{color:#A8CAF7;}
 .textBlue{color:#698FC0;}
+
+.logo{color:#F2F2F2;}
+.logo:hover{text-decoration:none; color:#ccc;}

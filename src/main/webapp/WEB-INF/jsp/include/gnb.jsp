@@ -3,12 +3,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="d-flex">
 	<div class="logo">
-		<h1 class="textGray p-4 font-weight-bold">Stellagram</h1>
+		<h1 class="textGray p-4 font-weight-bold"><a href="/timeline/timeline_view" class="logo">Stellagram</a></h1>
 	</div>
 		<%-- 로그인이 된 경우 --%>
+		<form method="post" action="/timeline/timeline_search_view">
 		<c:if test="${not empty userName }">
 			<div class="login-info d-flex justify-content-between align-items-center">
-				<div class="input-group w-50 ml-5">
+				<div class="input-group w-50 ml-5 mt-4">
 				  <input type="text" class="form-control" id="search" name="search" placeholder="search">
 				  <div class="input-group-append">
 				    <button type="submit" class="btn bgGray searchBtn"><i class="fa fa-search textDeepBlue" aria-hidden="true" ></i></button>
@@ -20,7 +21,7 @@
 				</div>
 			</div>
 		</c:if>
-	
+		</form>
 		<%-- 로그인이 안된 경우 --%>
 		<c:if test="${empty userName }">
 			<div class="login-info d-flex justify-content-end align-items-center">
@@ -41,5 +42,6 @@ $(document).ready(function(){
 		}
 		
 	});
+	
 });
 </script>

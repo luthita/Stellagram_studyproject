@@ -34,9 +34,7 @@
 			<%-- 반복문 --%>
 			<c:forEach var="content" items="${contentList}">
 				
-				<c:set="search" value="${'input[name=search'}"/>
-				
-				<c:if test="${search } eq ${content.post.userName }">
+				<c:if test="${search  eq content.post.userName }">
 				<%-- 카드 하나하나마다 영역을 border로 나눔 --%>
 				<div class="card border rounded mt-3">
 					
