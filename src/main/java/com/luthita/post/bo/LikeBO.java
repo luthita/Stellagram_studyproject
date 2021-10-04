@@ -14,7 +14,7 @@ public class LikeBO {
 	public void like(int postId, int userId) {
 		boolean existLike = existLike(postId,userId);
 		if(existLike) {
-			likeDAO.deleteLike(postId, userId);
+			likeDAO.deleteLikeByPostIdUserId(postId, userId);
 		} else {
 			likeDAO.insertLike(postId, userId);
 		}
@@ -33,5 +33,11 @@ public class LikeBO {
 	public int getLikeCountByPostId(int postId) {
 		return likeDAO.selectLikeCountByPostIdOrUserId(postId, null);
 	}
-	
+	public void deleteLikeByPostIdUserId(int postId, int userId) {
+		likeDAO.deleteLikeByPostIdUserId(postId, userId);
+	}
+
+	public void deleteLikeByPostId(int postId) {
+		likeDAO.deleteLikeByPostId(postId);
+	}
 }
